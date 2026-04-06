@@ -1,0 +1,25 @@
+{
+  "name": "Uhr Chime V1.57",
+  "short_name": "Uhr Chime",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0a1732",
+  "theme_color": "#0a1732",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-180.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
