@@ -1,6 +1,6 @@
 {
   "name": "Uhr Chime V1.57",
-  "short_name": "Uhr Chime",
+  "short_name": "Mega 4",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#0a1732",
@@ -19,7 +19,8 @@
     {
       "src": "icon-180.png",
       "sizes": "180x180",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     }
   ]
 }
