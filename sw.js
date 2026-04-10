@@ -1,5 +1,52 @@
-const CACHE_NAME='mega4-pwa-v1';
-const APP_SHELL=["L13.png", "L15.png", "L17.png", "L18.png", "L21.png", "L21B.png", "L26.png", "L27.png", "README.txt", "apple-touch-icon.png", "asset_01.m4a", "asset_02.m4a", "balance.png", "bg.png", "case.webp", "case_original.jpg", "clockChimeSrc.m4a", "clockDingSrc.m4a", "clockDongSrc.m4a", "clockMinuteSrc.m4a", "dial.png", "gmt_l.png", "gmt_r.png", "h24.png", "hourHand.png", "icon-192.png", "icon-512.png", "index.html", "infoOverlay.png", "inline_asset_01.png", "inline_asset_03.png", "inline_asset_04.png", "inline_asset_05.png", "manifest.json", "minuteHand.png", "moon.png", "pinion1.png", "pinion2.png", "sec_wheel2.png", "sw.js", "tourb_cage.png"];
-self.addEventListener('install',e=>{e.waitUntil(caches.open(CACHE_NAME).then(c=>c.addAll(APP_SHELL)));self.skipWaiting();});
+const CACHE_NAME = 'watch-pwa-u16-v1';
+const CORE_ASSETS = [
+  "./a01.m4a",
+  "./a02.m4a",
+  "./a03.m4a",
+  "./a04.m4a",
+  "./a05.m4a",
+  "./a06.m4a",
+  "./ch_hour.png",
+  "./chrono_min.png",
+  "./eq_time.png",
+  "./gmt_l.png",
+  "./gmt_r.png",
+  "./h24.png",
+  "./i01.png",
+  "./i02.png",
+  "./i03.png",
+  "./i04.png",
+  "./i06.png",
+  "./i07.png",
+  "./i08.png",
+  "./i09.png",
+  "./i10.png",
+  "./i11.png",
+  "./i12.png",
+  "./i13.png",
+  "./i14.png",
+  "./i15.png",
+  "./i16.png",
+  "./i17.png",
+  "./i18.png",
+  "./i19.png",
+  "./i20.png",
+  "./index.html",
+  "./leap.png",
+  "./manifest.webmanifest",
+  "./overlay_arrow.png",
+  "./overlay_de.png",
+  "./overlay_en.png",
+  "./overlay_glitter.png",
+  "./overlay_info.png",
+  "./overlay_jp.png",
+  "./p01.png",
+  "./p02.webp",
+  "./p03.webp",
+  "./p04.webp",
+  "./p05.webp",
+  "./u09.html"
+];
+self.addEventListener('install',e=>{e.waitUntil(caches.open(CACHE_NAME).then(c=>c.addAll(CORE_ASSETS)).then(()=>self.skipWaiting()));});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(keys=>Promise.all(keys.map(k=>k!==CACHE_NAME?caches.delete(k):Promise.resolve()))).then(()=>self.clients.claim()));});
-self.addEventListener('fetch',e=>{if(e.request.method!=='GET')return; e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request).then(resp=>{const copy=resp.clone();caches.open(CACHE_NAME).then(c=>c.put(e.request,copy));return resp;}).catch(()=>caches.match('./index.html'))));});
+self.addEventListener('fetch',e=>{if(e.request.method!=='GET') return; e.respondWith(caches.match(e.request).then(c=>c||fetch(e.request).then(r=>{const copy=r.clone(); caches.open(CACHE_NAME).then(cache=>cache.put(e.request,copy)); return r;}).catch(()=>c)));});
