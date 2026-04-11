@@ -1,48 +1,54 @@
-Dateiname | Typ | Zugehörige ID/Funktion
-a01.m4a | audio | tickAudio
-a02.m4a | audio | clickSoft
-a03.m4a | audio | clockChimeSrc
-a04.m4a | audio | clockDingSrc
-a05.m4a | audio | clockDongSrc
-a06.m4a | audio | clockMinuteSrc
-ch_hour.png | image | L21
-chrono_min.png | image | L22
-eq_time.png | image | L15
-gmt_l.png | image | gmt_l
-gmt_r.png | image | gmt_r
-h24.png | image | h24
-i01.png | image | hourHand
-i02.png | image | minuteHand
-i03.png | image | L27
-i04.png | image | L26
-i06.png | image | L21B
-i07.png | image | L14
-i08.png | image | L13
-i09.png | image | L16
-i10.png | image | L17
-i11.png | image | L18
-i12.png | image | L20
-i13.png | image | tourb_cage
-i14.png | image | balance
-i15.png | image | pinion1
-i16.png | image | pinion2
-i17.png | image | sec_wheel2
-i18.png | image | moon
-i19.png | image | bg
-i20.png | image | dial
-index.html | core | html
-leap.png | image | leap
-manifest.webmanifest | core | manifest
-overlay_arrow.png | overlay | u147InfoArrow
-overlay_de.png | overlay | data-src-de
-overlay_en.png | overlay | data-src-en
-overlay_glitter.png | overlay | glint
-overlay_info.png | overlay | infoOverlay default
-overlay_jp.png | overlay | data-src-jp
-p01.png | icon | user screenshot
-p02.webp | icon | user screenshot
-p03.webp | icon | user screenshot
-p04.webp | icon | user screenshot
-p05.webp | icon | user screenshot
-sw.js | core | service worker
-u09.html | core | base copy
+Dateiname | Typ | Funktion
+a01.m4a | audio | Tick-Audio
+a02.m4a | audio | Chime-Audio
+a03.m4a | audio | Ding-Audio
+a04.m4a | audio | Dong-Audio
+a05.m4a | audio | Minute-Audio
+a06.m4a | audio | Top-Click-Audio
+a07.m4a | audio | Zusatz-Click-Audio aus Basisdatei
+ch_hour.png | image | L21 | Chrono Stunden retrograd
+chrono_min.png | image | L22 | Chrono Minuten
+clickHeavy.m4a | audio | 
+clickSoft.m4a | audio | 
+eq_time.png | image | L15 | Equation of Time
+file_list.txt | file | Dateiliste
+gmt_l.png | image | L18 | GMT links oben
+gmt_l_sub.png | image | gmt_l | unterer linker Subdial-Zeiger
+gmt_r.png | image | L20 | GMT rechts oben
+gmt_r_sub.png | image | gmt_r | unterer rechter Subdial-Zeiger
+h24.png | image | h24 | 24h / Tag-Nacht
+i01.png | image | hourHand | Stundenzeiger
+i02.png | image | minuteHand | Minutenzeiger
+i03.png | image | L27 | Chrono Sekunde zentral
+i04.png | image | L26 | Split / Rattrapante
+i06.png | image | L21B | Datum
+i07.png | image | L14 | Monat
+i08.png | image | L13 | Wochentag
+i09.png | image | L16 | Gangreserve rechts
+i10.png | image | L17 | Gangreserve links
+i13.png | image | tourb_cage | Tourbillon Käfig
+i14.png | image | balance | Unruh
+i15.png | image | pinion1 | Zahnrad 1
+i16.png | image | pinion2 | Zahnrad 2
+i17.png | image | sec_wheel2 | Sekundenrad
+i18.png | image | moon | Mondscheibe
+i19.png | image | bg | Hintergrund
+i20.png | image | dial | Zifferblatt
+index.html | file | PWA app-shell launcher
+leap.png | image | leap | Schaltjahr
+manifest.webmanifest | file | PWA manifest
+overlay_arrow.png | image | Info-Pfeil-Overlay
+overlay_de.png | image | Info-Overlay Deutsch
+overlay_en.png | image | Info-Overlay Englisch
+overlay_glitter.png | image | Glitzer-Overlay
+overlay_info.png | image | Info-Overlay Standard
+overlay_jp.png | image | Info-Overlay Japanisch
+p01.png | image | PWA Icon 192
+p02.webp | image | PWA Icon 256
+p03.webp | image | Apple Touch Icon 180
+p04.webp | image | PWA Icon 512
+p05.webp | image | PWA Icon 1024
+sw.js | file | Service worker cache
+u09.html | file | Watch HTML basis converted to root asset files
+
+Hinweis | file | i22.png / overlay_base wurde in der hochgeladenen HTML-Basis nicht als eigene Datei gefunden und daher nicht künstlich erzeugt.

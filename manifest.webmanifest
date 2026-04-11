@@ -1,35 +1,41 @@
 {
-  "name": "Watch PWA",
-  "short_name": "Watch",
+  "name": "Mega 4 Watch",
+  "short_name": "Mega 4",
+  "start_url": "./u09.html",
+  "scope": "./",
   "display": "standalone",
-  "start_url": "./index.html",
   "background_color": "#0a1732",
   "theme_color": "#0a1732",
   "icons": [
     {
-      "src": "./p01.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    },
-    {
-      "src": "./p02.webp",
-      "sizes": "512x512",
-      "type": "image/webp"
-    },
-    {
-      "src": "./p03.webp",
+      "src": "p01.png",
       "sizes": "192x192",
-      "type": "image/webp"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
-      "src": "./p04.webp",
-      "sizes": "96x96",
-      "type": "image/webp"
+      "src": "p02.webp",
+      "sizes": "256x256",
+      "type": "image/webp",
+      "purpose": "any"
     },
     {
-      "src": "./p05.webp",
-      "sizes": "48x48",
-      "type": "image/webp"
+      "src": "p03.webp",
+      "sizes": "180x180",
+      "type": "image/webp",
+      "purpose": "any"
+    },
+    {
+      "src": "p04.webp",
+      "sizes": "512x512",
+      "type": "image/webp",
+      "purpose": "any"
+    },
+    {
+      "src": "p05.webp",
+      "sizes": "1024x1024",
+      "type": "image/webp",
+      "purpose": "any"
     }
   ]
 }
