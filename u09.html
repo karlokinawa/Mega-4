@@ -154,7 +154,7 @@ body.pc-zoom-active.dragging #stageShell {
 #sec_wheel2{z-index:4 !important;}
 #pinion2{z-index:5 !important;}
 #pinion1{z-index:5 !important;}
-#balance{z-index:6 !important;}
+#balance{z-index:3 !important;}
 #tourb_cage{z-index:7 !important;}
 
 #year3{
@@ -920,7 +920,7 @@ body.pc-zoom-active.dragging #stageShell {
     drop-shadow(0 0 10px rgba(255,30,30,0.28));
 }
 #infoOverlay.infoCue{
-  animation: infoCueFlashFixed 2.8s ease-in-out infinite;
+  animation: none !important;
 }
 @keyframes infoCueFlashFixed{
   0%, 88%, 100% {
@@ -3685,13 +3685,14 @@ window.addEventListener('load', function(){
     applyButtons();
   }
 
-  // INFO = only on/off. It does NOT force EN anymore.
+  // INFO = on/off, and opens English by default.
   function onInfo(e){
     stopEvent(e);
     flash(labelInfo);
     if(infoVisible){
       hideOverlay();
     } else {
+      currentLang = "en";
       showCurrentOverlay();
     }
     return false;
@@ -3840,7 +3841,7 @@ window.addEventListener('load', function(){
       pingLayer.classList.add('show');
 
       var effectStart = Date.now();
-      var totalDuration = 4000;
+      var totalDuration = 2500;
       var strongBlinkPhase = 2400;
       var blinkStep = 220;
 
@@ -3893,7 +3894,7 @@ window.addEventListener('load', function(){
       if (pingLayer) {
         pingLayer.querySelectorAll('.u159Ring').forEach(function(r){ r.classList.add('run'); });
       }
-    }, 3000);
+    }, 2000);
   }
 
   if (document.readyState === 'loading') {

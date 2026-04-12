@@ -60,3 +60,7 @@ Notizen:
 - freie schnelle Unruh (balance) ohne absolute Zeitkopplung
 - Info / EN / DE / JP unverändert
 - Root-Struktur für Homepage/PWA beibehalten
+- Leichte PWA-Basis beibehalten
+- Info öffnet Englisch standardmäßig
+- Pfeil-Overlay: Start 2.0s, Dauer 2.5s
+- Info-Aufflammen deaktiviert

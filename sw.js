@@ -1,4 +1,4 @@
-const CACHE_NAME = 'mega4-pwa-v1';
+const CACHE_NAME = 'mega4-pwa-v8';
 const APP_FILES = [
   "a01.m4a",
   "a02.m4a",
@@ -40,7 +40,6 @@ const APP_FILES = [
   "manifest.webmanifest",
   "overlay_arrow.png",
   "overlay_de.png",
-  "overlay_en.png",
   "overlay_glitter.png",
   "overlay_info.png",
   "overlay_jp.png",
