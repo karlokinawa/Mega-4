@@ -1,54 +1,62 @@
 Dateiname | Typ | Funktion
-a01.m4a | audio | Tick-Audio
-a02.m4a | audio | Chime-Audio
-a03.m4a | audio | Ding-Audio
-a04.m4a | audio | Dong-Audio
-a05.m4a | audio | Minute-Audio
-a06.m4a | audio | Top-Click-Audio
-a07.m4a | audio | Zusatz-Click-Audio aus Basisdatei
-ch_hour.png | image | L21 | Chrono Stunden retrograd
-chrono_min.png | image | L22 | Chrono Minuten
-clickHeavy.m4a | audio | 
-clickSoft.m4a | audio | 
-eq_time.png | image | L15 | Equation of Time
-file_list.txt | file | Dateiliste
-gmt_l.png | image | L18 | GMT links oben
-gmt_l_sub.png | image | gmt_l | unterer linker Subdial-Zeiger
-gmt_r.png | image | L20 | GMT rechts oben
-gmt_r_sub.png | image | gmt_r | unterer rechter Subdial-Zeiger
-h24.png | image | h24 | 24h / Tag-Nacht
-i01.png | image | hourHand | Stundenzeiger
-i02.png | image | minuteHand | Minutenzeiger
-i03.png | image | L27 | Chrono Sekunde zentral
-i04.png | image | L26 | Split / Rattrapante
-i06.png | image | L21B | Datum
-i07.png | image | L14 | Monat
-i08.png | image | L13 | Wochentag
-i09.png | image | L16 | Gangreserve rechts
-i10.png | image | L17 | Gangreserve links
-i13.png | image | tourb_cage | Tourbillon Käfig
-i14.png | image | balance | Unruh
-i15.png | image | pinion1 | Zahnrad 1
-i16.png | image | pinion2 | Zahnrad 2
-i17.png | image | sec_wheel2 | Sekundenrad
-i18.png | image | moon | Mondscheibe
-i19.png | image | bg | Hintergrund
-i20.png | image | dial | Zifferblatt
-index.html | file | PWA app-shell launcher
-leap.png | image | leap | Schaltjahr
-manifest.webmanifest | file | PWA manifest
-overlay_arrow.png | image | Info-Pfeil-Overlay
-overlay_de.png | image | Info-Overlay Deutsch
-overlay_en.png | image | Info-Overlay Englisch
-overlay_glitter.png | image | Glitzer-Overlay
-overlay_info.png | image | Info-Overlay Standard
-overlay_jp.png | image | Info-Overlay Japanisch
-p01.png | image | PWA Icon 192
-p02.webp | image | PWA Icon 256
-p03.webp | image | Apple Touch Icon 180
-p04.webp | image | PWA Icon 512
-p05.webp | image | PWA Icon 1024
-sw.js | file | Service worker cache
-u09.html | file | Watch HTML basis converted to root asset files
+index.html | html | Startdatei / Weiterleitung auf u09.html
+u09.html | html | Haupt-Uhrdatei
+sw.js | js | Service Worker
+manifest.webmanifest | webmanifest | PWA Manifest
+p01.png | png | PWA Icon
+p02.png | png | PWA Icon
+p03.png | png | PWA Icon
+p04.png | png | PWA Icon
+p05.png | png | PWA Icon
+a01.m4a | asset | übernommen aus vorheriger PWA-Struktur
+a02.m4a | asset | übernommen aus vorheriger PWA-Struktur
+a03.m4a | asset | übernommen aus vorheriger PWA-Struktur
+a04.m4a | asset | übernommen aus vorheriger PWA-Struktur
+a05.m4a | asset | übernommen aus vorheriger PWA-Struktur
+a06.m4a | asset | übernommen aus vorheriger PWA-Struktur
+a07.m4a | asset | übernommen aus vorheriger PWA-Struktur
+ch_hour.png | asset | übernommen aus vorheriger PWA-Struktur
+chrono_min.png | asset | übernommen aus vorheriger PWA-Struktur
+clickHeavy.m4a | asset | übernommen aus vorheriger PWA-Struktur
+clickSoft.m4a | asset | übernommen aus vorheriger PWA-Struktur
+eq_time.png | asset | übernommen aus vorheriger PWA-Struktur
+gmt_l.png | asset | übernommen aus vorheriger PWA-Struktur
+gmt_l_sub.png | asset | übernommen aus vorheriger PWA-Struktur
+gmt_r.png | asset | übernommen aus vorheriger PWA-Struktur
+gmt_r_sub.png | asset | übernommen aus vorheriger PWA-Struktur
+h24.png | asset | übernommen aus vorheriger PWA-Struktur
+i01.png | asset | übernommen aus vorheriger PWA-Struktur
+i02.png | asset | übernommen aus vorheriger PWA-Struktur
+i03.png | asset | übernommen aus vorheriger PWA-Struktur
+i04.png | asset | übernommen aus vorheriger PWA-Struktur
+i06.png | asset | übernommen aus vorheriger PWA-Struktur
+i07.png | asset | übernommen aus vorheriger PWA-Struktur
+i08.png | asset | übernommen aus vorheriger PWA-Struktur
+i09.png | asset | übernommen aus vorheriger PWA-Struktur
+i10.png | asset | übernommen aus vorheriger PWA-Struktur
+i13.png | asset | übernommen aus vorheriger PWA-Struktur
+i14.png | asset | übernommen aus vorheriger PWA-Struktur
+i15.png | asset | übernommen aus vorheriger PWA-Struktur
+i16.png | asset | übernommen aus vorheriger PWA-Struktur
+i17.png | asset | übernommen aus vorheriger PWA-Struktur
+i18.png | asset | übernommen aus vorheriger PWA-Struktur
+i19.png | asset | übernommen aus vorheriger PWA-Struktur
+i20.png | asset | übernommen aus vorheriger PWA-Struktur
+leap.png | asset | übernommen aus vorheriger PWA-Struktur
+overlay_arrow.png | asset | übernommen aus vorheriger PWA-Struktur
+overlay_de.png | asset | übernommen aus vorheriger PWA-Struktur
+overlay_en.png | asset | übernommen aus vorheriger PWA-Struktur
+overlay_glitter.png | asset | übernommen aus vorheriger PWA-Struktur
+overlay_info.png | asset | übernommen aus vorheriger PWA-Struktur
+overlay_jp.png | asset | übernommen aus vorheriger PWA-Struktur
+p02.webp | asset | übernommen aus vorheriger PWA-Struktur
+p03.webp | asset | übernommen aus vorheriger PWA-Struktur
+p04.webp | asset | übernommen aus vorheriger PWA-Struktur
+p05.webp | asset | übernommen aus vorheriger PWA-Struktur
 
-Hinweis | file | i22.png / overlay_base wurde in der hochgeladenen HTML-Basis nicht als eigene Datei gefunden und daher nicht künstlich erzeugt.
+Notizen:
+- Basis: u09ok_fix_ok_zoomguard_165_balancefree.html
+- maximum-scale = 1.65
+- freie schnelle Unruh (balance) ohne absolute Zeitkopplung
+- Info / EN / DE / JP unverändert
+- Root-Struktur für Homepage/PWA beibehalten
