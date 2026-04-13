@@ -937,8 +937,30 @@ body.pc-zoom-active.dragging #stageShell {
 }
 </style>
 
+<style id="m25-iphone-light">
+#glassOverlay,
+#glassTopGlow,
+.glassSweep,
+#u159PingLayer{
+  display:none !important;
+}
+#infoOverlay{
+  filter:none !important;
+  backface-visibility:hidden !important;
+  -webkit-backface-visibility:hidden !important;
+}
+#viewer.zoom-mode #infoOverlay{
+  display:none !important;
+}
+#stage,
+#stageShell,
+.layer{
+  will-change:auto !important;
+}
+</style>
 </head>
 <body>
+<!-- v11 true-light: lightweight HTML + m25 iPhone-light tweaks -->
 <audio id="tickAudio" loop="True" preload="auto"><source src="a01.m4a" type="audio/mp4"/></audio>
 <audio id="clickSoft" preload="auto"><source src="clickSoft.m4a" type="audio/mp4"/></audio>
 <audio id="clickHeavy" preload="auto"><source src="clickSoft.m4a" type="audio/mp4"/></audio>
@@ -3934,6 +3956,20 @@ window.addEventListener('load', function(){
     initAudioLevels();
   }, { once: true });
 
+})();
+</script>
+
+
+<script id="m25-iphone-light-js">
+(function(){
+  function hideInfo(){
+    try{
+      if(typeof hideOverlay === 'function') hideOverlay();
+    }catch(e){}
+  }
+  window.addEventListener('touchstart', function(e){
+    if(e.touches && e.touches.length >= 2) hideInfo();
+  }, {passive:true});
 })();
 </script>
 

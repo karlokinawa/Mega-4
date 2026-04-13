@@ -1,4 +1,4 @@
-const CACHE_NAME = 'mega4-pwa-v8';
+const CACHE_NAME = 'mega4-pwa-v11-true-light';
 const APP_FILES = [
   "a01.m4a",
   "a02.m4a",
