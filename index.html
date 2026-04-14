@@ -993,11 +993,7 @@ body.pc-zoom-active.dragging #stageShell {
 #K7_btn{left:711px;top:710px;width:344px;height:270px;}
 </style>
 
-<style id="m38_button_press_effect">
-.m36-btn.pressed{
-  opacity: 0 !important;
-}
-</style>
+
 
 
 <style id="m39_touch_resize">
@@ -1033,19 +1029,27 @@ body.pc-zoom-active.dragging #stageShell {
 </style>
 
 
-<link rel="manifest" href="manifest.webmanifest?v=42">
-<meta name="theme-color" content="#08142d">
+<style id="m42_real_press_effect">
+.m36-btn.press-stage1{
+  transform: scale(0.96);
+  opacity: 0.6;
+}
+.m36-btn.press-stage2{
+  opacity: 0 !important;
+}
+</style>
+
+
+<link rel="manifest" href="manifest.webmanifest?v=44">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png?v=44">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=44">
 <script>
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function() {
-    navigator.serviceWorker.register('sw.js?v=42');
+    navigator.serviceWorker.register('sw.js?v=44');
   });
 }
 </script>
-
-
-<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
 
 </head>
 <body>
@@ -1058,9 +1062,9 @@ if ('serviceWorker' in navigator) {
 <!-- m19: disable periodic info overlay flash -->
 <!-- m18: based on m12; Info opens English, built-in overlay logic preserved -->
 <!-- m12: arrow starts at 2s and lasts 2.5s -->
-<audio id="tickAudio" loop="True" preload="auto"><source src="audio01.m4a" type="audio/mp4"/></audio>
-<audio id="clickSoft" preload="auto"><source src="audio02.m4a" type="audio/mp4"/></audio>
-<audio id="clickHeavy" preload="auto"><source src="audio03.m4a" type="audio/mp4"/></audio>
+<audio id="tickAudio" loop="True" preload="auto"><source src="audio01.m4a?v=44" type="audio/mp4"/></audio>
+<audio id="clickSoft" preload="auto"><source src="audio02.m4a?v=44" type="audio/mp4"/></audio>
+<audio id="clickHeavy" preload="auto"><source src="audio03.m4a?v=44" type="audio/mp4"/></audio>
 <div id="viewer"><div id="stageShell"><div id="stage">
 
 <div id="infoBar">
@@ -1077,36 +1081,36 @@ if ('serviceWorker' in navigator) {
 <button id="HIT_JP_STAGE" aria-label="Japanese"></button>
 
 
-<img id="infoOverlay" class="layer" src="infoOverlay.png" data-src-en="img01.png" data-src-de="img02.png" data-src-jp="img03.png" alt="Watch info overlay"//>
-<img id="L15" class="layer" src="L15.png"/>
-<img id="L13" class="layer" src="L13.png"/>
-<img id="L21B" class="layer" src="L21B.png"/>
-<img id="L14" class="layer" src="L14.png"/><img alt="bg" class="layer" data-layer="L01" id="bg" src="bg.png"//><img alt="moon" class="layer" data-layer="L02" id="moon" src="moon.png"//>
-<img alt="dial" class="layer" data-layer="L03" id="dial" src="dial.png"//>
-<img id="K1_btn" class="layer m36-btn" src="K1_btn.png" alt="k1.png"//>
-<img id="K2_btn" class="layer m36-btn" src="K2_btn.png" alt="k2.png"//>
-<img id="K3_btn" class="layer m36-btn" src="K3_btn.png" alt="k3.png"//>
-<img id="K4_btn" class="layer m36-btn" src="K4_btn.png" alt="k4.png"//>
-<img id="K5_btn" class="layer m36-btn" src="K5_btn.png" alt="k5.png"//>
-<img id="K6_btn" class="layer m36-btn" src="K6_btn.png" alt="k6.png"//>
-<img id="K7_btn" class="layer m36-btn" src="K7_btn.png" alt="k7.png"//>
-<img alt="rear seconds wheel" class="layer" data-layer="L04" id="sec_wheel2" src="sec_wheel2.png"//>
-<img alt="pinion 2" class="layer" data-layer="L05" id="pinion2" src="pinion2.png"//>
-<img alt="pinion 1" class="layer" data-layer="L05" id="pinion1" src="pinion1.png"//>
-<img alt="balance" class="layer" data-layer="L06" id="balance" src="balance.png"//>
-<img alt="tourbillon cage" class="layer" data-layer="L07" id="tourb_cage" src="tourb_cage.png"//>
-<div class="layer" data-layer="L08" id="year3">026</div><img alt="gmt left" class="layer" data-layer="L11" id="gmt_l" src="gmt_l.png"//><img alt="gmt right" class="layer" data-layer="L12" id="gmt_r" src="gmt_r.png"//><img alt="" class="layer" id="L17" src="L17.png"//>
-<img alt="" class="layer" id="L16" src="L16.png"//>
-<img alt="" class="layer" id="L18" src="L18.png"//>
-<img alt="" class="layer" id="L20" src="L20.png"//>
+<img id="infoOverlay" class="layer" src="infoOverlay.png?v=44" loading="eager" data-src-en="asset01.png?v=44" data-src-de="asset02.png?v=44" data-src-jp="asset03.png?v=44" alt="Watch info overlay"//>
+<img id="L15" class="layer" src="L15.png?v=44" loading="eager"/>
+<img id="L13" class="layer" src="L13.png?v=44" loading="eager"/>
+<img id="L21B" class="layer" src="L21B.png?v=44" loading="eager"/>
+<img id="L14" class="layer" src="L14.png?v=44" loading="eager"/><img alt="bg" class="layer" data-layer="L01" id="bg" src="bg.png?v=44" loading="eager"//><img alt="moon" class="layer" data-layer="L02" id="moon" src="moon.png?v=44" loading="eager"//>
+<img alt="dial" class="layer" data-layer="L03" id="dial" src="dial.png?v=44" loading="eager"//>
+<img id="K1_btn" class="layer m36-btn" src="K1_btn.png?v=44" loading="eager" alt="k1.png"//>
+<img id="K2_btn" class="layer m36-btn" src="K2_btn.png?v=44" loading="eager" alt="k2.png"//>
+<img id="K3_btn" class="layer m36-btn" src="K3_btn.png?v=44" loading="eager" alt="k3.png"//>
+<img id="K4_btn" class="layer m36-btn" src="K4_btn.png?v=44" loading="eager" alt="k4.png"//>
+<img id="K5_btn" class="layer m36-btn" src="K5_btn.png?v=44" loading="eager" alt="k5.png"//>
+<img id="K6_btn" class="layer m36-btn" src="K6_btn.png?v=44" loading="eager" alt="k6.png"//>
+<img id="K7_btn" class="layer m36-btn" src="K7_btn.png?v=44" loading="eager" alt="k7.png"//>
+<img alt="rear seconds wheel" class="layer" data-layer="L04" id="sec_wheel2" src="sec_wheel2.png?v=44" loading="eager"//>
+<img alt="pinion 2" class="layer" data-layer="L05" id="pinion2" src="pinion2.png?v=44" loading="eager"//>
+<img alt="pinion 1" class="layer" data-layer="L05" id="pinion1" src="pinion1.png?v=44" loading="eager"//>
+<img alt="balance" class="layer" data-layer="L06" id="balance" src="balance.png?v=44" loading="eager"//>
+<img alt="tourbillon cage" class="layer" data-layer="L07" id="tourb_cage" src="tourb_cage.png?v=44" loading="eager"//>
+<div class="layer" data-layer="L08" id="year3">026</div><img alt="gmt left" class="layer" data-layer="L11" id="gmt_l" src="gmt_l.png?v=44" loading="eager"//><img alt="gmt right" class="layer" data-layer="L12" id="gmt_r" src="gmt_r.png?v=44" loading="eager"//><img alt="" class="layer" id="L17" src="L17.png?v=44" loading="eager"//>
+<img alt="" class="layer" id="L16" src="L16.png?v=44" loading="eager"//>
+<img alt="" class="layer" id="L18" src="L18.png?v=44" loading="eager"//>
+<img alt="" class="layer" id="L20" src="L20.png?v=44" loading="eager"//>
 <button id="HIT_Z16_TEST" type="button" aria-label="Z16 grande petite button"></button>
 <button id="HIT_Z20_TEST" type="button" aria-label="Z20 silence button"></button>
 <button id="HIT_Z19_TEST" type="button" aria-label="Z19 test button"></button>
-<button id="HIT_Z14" type="button" aria-label="Z14 chrono start button"></button><button id="HIT_Z15" type="button" aria-label="Z15 chrono flyback button"></button><button aria-label="GMT minus" class="hit-zone" id="hit_gmt_minus" type="button"></button><button aria-label="GMT plus" class="hit-zone" id="hit_gmt_plus" type="button"></button><img alt="hour hand" class="layer" data-layer="L23" id="hourHand" src="hourHand.png"//><img alt="minute hand" class="layer" data-layer="L24" id="minuteHand" src="minuteHand.png"//><img alt="h24" class="layer" data-layer="L09" id="h24" src="h24.png"//><img alt="leap" class="layer" data-layer="L10" id="leap" src="leap.png"//>
-<img alt="" class="layer" id="L21" src="L21.png"//>
-<img alt="" class="layer" id="L22" src="L22.png"//>
-<img alt="" class="layer" id="L27" src="L27.png"//>
-<img alt="" class="layer" id="L26" src="L26.png"//>
+<button id="HIT_Z14" type="button" aria-label="Z14 chrono start button"></button><button id="HIT_Z15" type="button" aria-label="Z15 chrono flyback button"></button><button aria-label="GMT minus" class="hit-zone" id="hit_gmt_minus" type="button"></button><button aria-label="GMT plus" class="hit-zone" id="hit_gmt_plus" type="button"></button><img alt="hour hand" class="layer" data-layer="L23" id="hourHand" src="hourHand.png?v=44" loading="eager"//><img alt="minute hand" class="layer" data-layer="L24" id="minuteHand" src="minuteHand.png?v=44" loading="eager"//><img alt="h24" class="layer" data-layer="L09" id="h24" src="h24.png?v=44" loading="eager"//><img alt="leap" class="layer" data-layer="L10" id="leap" src="leap.png?v=44" loading="eager"//>
+<img alt="" class="layer" id="L21" src="L21.png?v=44" loading="eager"//>
+<img alt="" class="layer" id="L22" src="L22.png?v=44" loading="eager"//>
+<img alt="" class="layer" id="L27" src="L27.png?v=44" loading="eager"//>
+<img alt="" class="layer" id="L26" src="L26.png?v=44" loading="eager"//>
 </div></div></div>
 <div id="controls">
 <button class="ctrl" id="zoomIn">＋</button>
@@ -1726,10 +1730,10 @@ function playClickHeavy() {
 
 
 <!-- Uhr_Chime_V1.57.html -->
-<audio id="clockChimeSrc" preload="auto" src="audio04.m4a"></audio>
-<audio id="clockDingSrc" preload="auto" src="audio05.m4a"></audio>
-<audio id="clockDongSrc" preload="auto" src="audio06.m4a"></audio>
-<audio id="clockMinuteSrc" preload="auto" src="audio07.m4a"></audio>
+<audio id="clockChimeSrc" preload="auto" src="asset04.m4a?v=44"></audio>
+<audio id="clockDingSrc" preload="auto" src="asset05.m4a?v=44"></audio>
+<audio id="clockDongSrc" preload="auto" src="asset06.m4a?v=44"></audio>
+<audio id="clockMinuteSrc" preload="auto" src="asset07.m4a?v=44"></audio>
 
 <script>
 (function(){
@@ -2021,7 +2025,7 @@ function playClickHeavy() {
 </script>
 
 
-<audio id="hitZ19ClickSrc_REMOVED" preload="auto" src="audio08.m4a"></audio>
+<audio id="hitZ19ClickSrc_REMOVED" preload="auto" src="asset08.m4a?v=44"></audio>
 <script>
 (function(){
   const clickSrc = document.getElementById('hitZ19ClickSrc');
@@ -2463,7 +2467,7 @@ function playClickHeavy() {
 </script>
 
 
-<audio id="topClickSrc" preload="auto" src="audio09.m4a"></audio>
+<audio id="topClickSrc" preload="auto" src="asset09.m4a?v=44"></audio>
 
 <script>
 (function(){
@@ -4078,13 +4082,30 @@ window.addEventListener('load', function(){
 </script>
 
 
-<script id="m38_button_press_js">
+
+
+
+
+
+
+<script id="m43_press_fix_all_buttons">
 (function(){
   function pressButton(id){
     const btn = document.getElementById(id);
     if(!btn) return;
-    btn.classList.add("pressed");
-    setTimeout(()=>{ btn.classList.remove("pressed"); }, 300);
+
+    btn.classList.remove("pressed", "press-stage1", "press-stage2");
+
+    btn.classList.add("press-stage1");
+
+    setTimeout(()=>{
+      btn.classList.remove("press-stage1");
+      btn.classList.add("press-stage2");
+    }, 80);
+
+    setTimeout(()=>{
+      btn.classList.remove("press-stage2");
+    }, 300);
   }
 
   const buttonMap = {
@@ -4097,6 +4118,8 @@ window.addEventListener('load', function(){
     "HIT_Z16_TEST": "K1_btn"
   };
 
+  let lastTouchTime = 0;
+
   window.addEventListener("DOMContentLoaded", ()=>{
     Object.keys(buttonMap).forEach(tid=>{
       const el = document.getElementById(tid);
@@ -4104,8 +4127,22 @@ window.addEventListener('load', function(){
 
       const run = ()=> pressButton(buttonMap[tid]);
 
-      el.addEventListener("click", run);
-      el.addEventListener("touchstart", run, {passive:true});
+      el.addEventListener("touchstart", ()=>{
+        lastTouchTime = Date.now();
+        run();
+      }, { passive:true, capture:true });
+
+      el.addEventListener("pointerdown", ()=>{
+        if(Date.now() - lastTouchTime > 700){
+          run();
+        }
+      }, { capture:true });
+
+      el.addEventListener("mousedown", ()=>{
+        if(Date.now() - lastTouchTime > 700){
+          run();
+        }
+      }, { capture:true });
     });
   });
 })();
