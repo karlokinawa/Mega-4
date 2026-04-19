@@ -1,5 +1,5 @@
 
-const CACHE_NAME = 'mega4-pwa-v219';
+const CACHE_NAME = 'mega4-pwa-v223';
 const PRECACHE_URLS = [
   "K1_btn.png",
   "K2_btn.png",
@@ -16,7 +16,7 @@ const PRECACHE_URLS = [
   "L21B.png",
   "L26.png",
   "L27.png",
-  "apple-touch-icon.png?v=218",
+  "apple-touch-icon.png?v=223",
   "asset_m4a.m4a",
   "asset_m4a_2.m4a",
   "asset_m4a_3.m4a",
@@ -31,12 +31,12 @@ const PRECACHE_URLS = [
   "gmt_r.png",
   "h24.png",
   "hourHand.png",
-  "icon-192.png?v=218",
-  "icon-512.png?v=218",
-  "index.html?v=218",
+  "icon-192.png?v=223",
+  "icon-512.png?v=223",
+  "index.html?v=223",
   "infoOverlay.png",
-  "m_light.html?v=218",
-  "manifest.webmanifest?v=218",
+  "m_light.html?v=223",
+  "manifest.webmanifest?v=223",
   "minuteHand.png",
   "moon.png",
   "overlay_info_de.png",
