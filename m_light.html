@@ -1003,7 +1003,7 @@ html, body{
   overflow:visible !important;
 }
 </style>
-<meta content="#0a1732" name="theme-color"/><meta content="yes" name="apple-mobile-web-app-capable"/><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/><meta content="MEGA 4" name="apple-mobile-web-app-title"/><link href="manifest.webmanifest?v=223" rel="manifest"/><link href="apple-touch-icon.png?v=223" rel="apple-touch-icon"/><link href="icon-192.png?v=223" rel="icon" sizes="192x192" type="image/png"/>
+<meta content="#0a1732" name="theme-color"/><meta content="yes" name="apple-mobile-web-app-capable"/><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/><meta content="MEGA 4" name="apple-mobile-web-app-title"/><link href="manifest.webmanifest?v=226" rel="manifest"/><link href="apple-touch-icon.png?v=226" rel="apple-touch-icon"/><link href="icon-192.png?v=226" rel="icon" sizes="192x192" type="image/png"/>
 <style id="mega4-light-overrides">
 #glassOverlay,
 #glassTopGlow,
@@ -1033,7 +1033,7 @@ html, body{
   opacity:0.7 !important;
 }
 </style>
-</head>
+<link rel="preload" as="image" href="dial.png?v=226" fetchpriority="high"/><link rel="preload" as="image" href="infoOverlay.png?v=226" fetchpriority="high"/><link rel="preload" as="image" href="overlay_info_de.png?v=226" fetchpriority="high"/><link rel="preload" as="image" href="overlay_info_jp.png?v=226" fetchpriority="high"/></head>
 <body>
 <!-- m38_final_with_button_press -->
 <!-- m37_final_clean_year_fix -->
@@ -1071,7 +1071,7 @@ html, body{
 <button aria-label="English" id="HIT_EN_STAGE"></button>
 <button aria-label="Deutsch" id="HIT_DE_STAGE"></button>
 <button aria-label="Japanese" id="HIT_JP_STAGE"></button>
-<img alt="Watch info overlay" class="layer" data-src-de="overlay_info_de.png" data-src-en="infoOverlay.png" data-src-jp="overlay_info_jp.png" decoding="async" id="infoOverlay" src="infoOverlay.png"/>
+<img alt="Watch info overlay" class="layer" data-src-de="overlay_info_de.png?v=226" data-src-en="infoOverlay.png?v=226" data-src-jp="overlay_info_jp.png?v=226" decoding="async" id="infoOverlay" src="infoOverlay.png?v=226"/>
 <img class="layer" decoding="async" id="L15" src="L15.png"/>
 <img class="layer" decoding="async" id="L13" src="L13.png"/>
 <img class="layer" decoding="async" id="L21B" loading="lazy" src="L21B.png"/>
@@ -1110,7 +1110,7 @@ pointer-events:none;
 opacity:0;
 "/>
 <img alt="turb_unterrad" class="layer" decoding="async" id="turb_unterrad" src="turb_unterrad.png"/>
-<img alt="dial" class="layer" data-layer="L03" decoding="async" id="dial" src="dial.png"/>
+<img alt="dial" class="layer" data-layer="L03" decoding="async" id="dial" src="dial_small.webp" data-full-src="dial.png?v=226"/>
 <img alt="k1.png" class="layer m36-btn" decoding="async" id="K1_btn" loading="lazy" src="K1_btn.png"/>
 <img alt="k2.png" class="layer m36-btn" decoding="async" id="K2_btn" loading="lazy" src="K2_btn.png"/>
 <img alt="k3.png" class="layer m36-btn" decoding="async" id="K3_btn" loading="lazy" src="K3_btn.png"/>
@@ -3038,8 +3038,8 @@ function playClickHeavy() {
 })();
 </script>
 <script>
-const startDeg = -97.6;
-const endDeg = -261.0;
+const startDeg = -98.6;
+const endDeg = -263.0;
 const stepDeg = (endDeg - startDeg) / 30;
 
 function setDatePointer(day){
@@ -3688,15 +3688,45 @@ window.addEventListener('load', function(){
   const srcDe = overlay.getAttribute("data-src-de");
   const srcJp = overlay.getAttribute("data-src-jp");
 
-  // Preload off-DOM only; keep just ONE stage overlay element live.
+  // Preload and decode off-DOM early; keep just ONE stage overlay element live.
   const cache = {
     en: new Image(),
     de: new Image(),
     jp: new Image()
   };
-  cache.en.src = srcEn;
-  cache.de.src = srcDe;
-  cache.jp.src = srcJp;
+  const cacheReady = { en: Promise.resolve(), de: Promise.resolve(), jp: Promise.resolve() };
+
+  function warmOverlayImage(img, src, priority){
+    img.decoding = 'async';
+    try { img.fetchPriority = priority; } catch(e) {}
+    img.src = src;
+    if (img.decode) {
+      return img.decode().catch(function(){});
+    }
+    return new Promise(function(resolve){
+      if (img.complete) return resolve();
+      img.onload = function(){ resolve(); };
+      img.onerror = function(){ resolve(); };
+    });
+  }
+
+  function warmInfoOverlays(){
+    cacheReady.en = warmOverlayImage(cache.en, srcEn, 'high');
+    cacheReady.de = warmOverlayImage(cache.de, srcDe, 'high');
+    cacheReady.jp = warmOverlayImage(cache.jp, srcJp, 'high');
+  }
+
+  if (document.readyState === 'complete') {
+    warmInfoOverlays();
+  } else {
+    window.addEventListener('load', function(){
+      if (window.requestIdleCallback) {
+        requestIdleCallback(warmInfoOverlays, { timeout: 1200 });
+      } else {
+        setTimeout(warmInfoOverlays, 250);
+      }
+    }, { once:true });
+  }
 
   function isMobileTouch(){
     return ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (window.matchMedia && window.matchMedia('(pointer: coarse)').matches);
@@ -3759,14 +3789,17 @@ window.addEventListener('load', function(){
   function showCurrentOverlay(){
     const src = currentSrc();
     if (!src) return;
-    if (overlay.src !== src) overlay.src = src;
-    overlay.style.setProperty("display", "block", "important");
-    overlay.classList.remove("infoCue");
-    void overlay.offsetWidth;
-    overlay.classList.add("infoCue");
-    infoVisible = true;
-    lockMobileZoom();
-    applyButtons();
+    const langKey = currentLang === "de" ? "de" : (currentLang === "jp" ? "jp" : "en");
+    Promise.resolve(cacheReady[langKey]).finally(function(){
+      if (overlay.src !== src) overlay.src = src;
+      overlay.style.setProperty("display", "block", "important");
+      overlay.classList.remove("infoCue");
+      void overlay.offsetWidth;
+      overlay.classList.add("infoCue");
+      infoVisible = true;
+      lockMobileZoom();
+      applyButtons();
+    });
   }
 
   function hideOverlay(){
@@ -4680,7 +4713,7 @@ window.addEventListener('load', function(){
 (function(){
   if(!('serviceWorker' in navigator)) return;
   window.addEventListener('load', function(){
-    navigator.serviceWorker.register('sw.js?v=223').catch(function(err){ console.warn('SW register failed', err); });
+    navigator.serviceWorker.register('sw.js?v=226').catch(function(err){ console.warn('SW register failed', err); });
   });
 })();
 </script>
@@ -4697,6 +4730,34 @@ window.addEventListener('load', function(){
   }
   document.addEventListener('touchmove', syncOverlay, {passive:true});
   window.addEventListener('resize', syncOverlay, {passive:true});
+})();
+</script>
+
+<script id="m225_dial_progressive">
+(function(){
+  const dial = document.getElementById('dial');
+  if(!dial) return;
+  const fullSrc = dial.getAttribute('data-full-src');
+  if(!fullSrc) return;
+  const preload = new Image();
+  preload.decoding = 'async';
+  preload.fetchPriority = 'high';
+  preload.src = fullSrc;
+  const swap = function(){
+    try {
+      if (preload.decode) {
+        preload.decode().catch(function(){}).finally(function(){ dial.src = fullSrc; dial.setAttribute('data-dial-ready','1'); });
+      } else {
+        dial.src = fullSrc;
+        dial.setAttribute('data-dial-ready','1');
+      }
+    } catch(e) {
+      dial.src = fullSrc;
+      dial.setAttribute('data-dial-ready','1');
+    }
+  };
+  if (preload.complete) swap();
+  else preload.onload = swap;
 })();
 </script>
 </body>
