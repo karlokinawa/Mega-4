@@ -1,6 +1,8 @@
-
-const CACHE_NAME = 'mega4-pwa-v226';
+const CACHE_NAME = 'mega4-pwa-v232';
 const PRECACHE_URLS = [
+  "./",
+  "A2.png",
+  "A2_low.webp",
   "K1_btn.png",
   "K2_btn.png",
   "K3_btn.png",
@@ -16,76 +18,41 @@ const PRECACHE_URLS = [
   "L21B.png",
   "L26.png",
   "L27.png",
-  "apple-touch-icon.png?v=225",
-  "asset_m4a.m4a",
-  "asset_m4a_2.m4a",
-  "asset_m4a_3.m4a",
-  "asset_m4a_4.m4a",
+  "README.txt",
+  "apple-touch-icon.png",
+  "asset.m4a",
+  "asset.png",
+  "asset_2.m4a",
+  "asset_2.png",
+  "asset_3.m4a",
+  "asset_3.png",
+  "asset_4.m4a",
+  "asset_4.png",
+  "asset_5.png",
+  "audio_01.m4a",
+  "audio_02.m4a",
   "balance.png",
   "bg.png",
-  "clickSoft.m4a",
-  "crown_over_top.png",
   "crown_overlay.png",
-  "dial.png?v=226",
-  "dial_small.webp",
   "gmt_l.png",
   "gmt_r.png",
   "h24.png",
   "hourHand.png",
-  "icon-192.png?v=225",
-  "icon-512.png?v=225",
-  "index.html?v=226",
-  "infoOverlay.png?v=226",
-  "m_light.html?v=226",
-  "manifest.webmanifest?v=226",
+  "icon-192.png",
+  "icon-512.png",
+  "index.html",
+  "m_light.html",
+  "manifest.webmanifest",
   "minuteHand.png",
   "moon.png",
-  "overlay_info_de.png",
-  "overlay_info_jp.png",
+  "overlay_info.png",
   "pinion1.png",
   "pinion2.png",
   "sec_wheel2.png",
-  "tickAudio.m4a",
   "tourb_cage.png",
   "turb_unterrad.png"
 ];
-
-self.addEventListener('install', event => {
-  self.skipWaiting();
-  event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => cache.addAll(PRECACHE_URLS))
-  );
-});
-
-self.addEventListener('activate', event => {
-  event.waitUntil((async () => {
-    const keys = await caches.keys();
-    await Promise.all(keys.map(key => {
-      if (key !== CACHE_NAME && key.startsWith('mega4-pwa-v')) {
-        return caches.delete(key);
-      }
-    }));
-    await self.clients.claim();
-  })());
-});
-
-self.addEventListener('fetch', event => {
-  const req = event.request;
-  if (req.method !== 'GET') return;
-  event.respondWith((async () => {
-    const cached = await caches.match(req, {ignoreSearch:false});
-    if (cached) return cached;
-    try {
-      const fresh = await fetch(req);
-      if (fresh && fresh.ok) {
-        const cache = await caches.open(CACHE_NAME);
-        cache.put(req, fresh.clone());
-      }
-      return fresh;
-    } catch (err) {
-      const fallback = await caches.match(req.url.split('?')[0], {ignoreSearch:true});
-      if (fallback) return fallback;
-      throw err;
-    }
-  })());
-});
+self.addEventListener('install', event => { self.skipWaiting(); event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(PRECACHE_URLS.map(u => new Request(u, {cache:'reload'}))).catch(()=>{})); });
+self.addEventListener('activate', event => { event.waitUntil((async () => { const names = await caches.keys(); await Promise.all(names.map(name => name !== CACHE_NAME ? caches.delete(name) : Promise.resolve())); await self.clients.claim(); })()); });
+self.addEventListener('message', event => { if (event.data && event.data.type === 'SKIP_WAITING') self.skipWaiting(); });
+self.addEventListener('fetch', event => { if (event.request.method !== 'GET') return; event.respondWith((async () => { const cached = await caches.match(event.request); if (cached) return cached; try { const res = await fetch(event.request); const cache = await caches.open(CACHE_NAME); cache.put(event.request, res.clone()).catch(()=>{}); return res; } catch(e) { return caches.match('index.html'); } })()); });
