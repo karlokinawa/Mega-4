@@ -2970,7 +2970,7 @@ function setDatePointer(day){
 function setMonthPointer(month){
   const el = document.getElementById('L14');
   if(!el) return;
-  el.style.transform = `rotate(${(month-1)*30}deg)`;
+  el.style.transform = `rotate(${month*30}deg)`;
 }
 
 (function(){
